@@ -1,6 +1,10 @@
 import React, { useState, useEffect  } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from './LoginPage'; // Login Page Component
+import HomeScreen from './HomeScreen'; // HomeScreen Component
+import BookRide from './BookRide'; // Create BookRide Component
+import OfferRide from './OfferRide'; // Create OfferRide Component
+import RideDetails from './RideDetails'; // Create RideDetails Component
 
 const App = () => {
 const [rides, setRides] = useState([
@@ -11,10 +15,48 @@ const [rides, setRides] = useState([
   ]);
 
 
+/*
+  const [rides, setRides] = useState([]);
+  // Fetch rides from the API
+  useEffect(() => {
+    const fetchRides = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/pool/api/rides'); // Replace with your API URL
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setRides(data); // Update state with the fetched data
+      } catch (error) {
+        console.error('Error fetching rides:', error);
+      }
+    };
+
+    fetchRides();
+  }, []); // Empty dependency array to run only once on component mount
+*/
+
+  const handleAddRide = (newRide) => {
+    setRides((prevRides) => [...prevRides, newRide]);
+  };
+
+  const handleUpdateRides = (updatedRide) => {
+    setRides((prevRides) =>
+      prevRides.map((ride) => (ride.id === updatedRide.id ? updatedRide : ride))
+    );
+  };
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage rides={rides}/>} />
+        <Route path="/home" element={<HomeScreen rides={rides} />} />
+        <Route path="/book-ride" element={<BookRide rides={rides} setRides={setRides} />} />
+        <Route path="/offer-ride" element={<OfferRide onAddRide={handleAddRide} />} />
+        <Route
+          path="/ride-details"
+          element={<RideDetails onUpdateRides={handleUpdateRides} />}
+        />
       </Routes>
     </Router>
   );
