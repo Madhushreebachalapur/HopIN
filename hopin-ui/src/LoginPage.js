@@ -26,12 +26,14 @@ const LoginPage = () => {
     }
 
     // For demonstration, set a user name based on mobile number
-    if (mobileNumber === '1111111111') {
+    if (mobileNumber.endsWith("1")) {
       setUserName('Menita Pattam');
-    } else if (mobileNumber === '2222222222') {
-      setUserName('Chris Hopper');
-    } else if (mobileNumber === '9916906893') {
-      setUserName('Praveen Pattam');
+    } else if (mobileNumber.endsWith("2")) {
+      setUserName('Madhushri');
+    } else if (mobileNumber.endsWith("3")) {
+      setUserName('Khuushi');
+    } else if (mobileNumber.endsWith("4")) {
+      setUserName('Pritika');
     } else {
       setUserName('User');
     }
@@ -51,7 +53,12 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       <div className="banner">
-        <h1>Car Pooling App</h1>
+      <img 
+        src={`${process.env.PUBLIC_URL}/hopin.jpg`} 
+        alt="Hop IN" 
+        style={{ width: "100px", height: "auto" }}
+      />
+        <h1>HopIN</h1>
         <p>Ride together, save costs and reduce traffic!</p>
       </div>
 

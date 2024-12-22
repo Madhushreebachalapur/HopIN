@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './HomeScreen.css';
+import './styles.css';
 
 const HomeScreen = ({ rides }) => {
   const navigate = useNavigate();
@@ -9,6 +10,12 @@ const HomeScreen = ({ rides }) => {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredRides, setFilteredRides] = useState(rides);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  const toggleTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
+    document.body.className = isDarkTheme ? '' : 'dark-theme';
+  };
 
   useEffect(() => {
     setFilteredRides(
@@ -40,11 +47,20 @@ const HomeScreen = ({ rides }) => {
     <div className="home-container">
       <header className="home-header">
         <div className="logo">
-          <h1>Carpooling App</h1>
+        <img 
+        src={`${process.env.PUBLIC_URL}/hopin.jpg`} 
+        alt="Hop IN" 
+        style={{ width: "80px", height: "auto" }}
+      />
+          <h1>Hop IN</h1>
         </div>
         <div className="profile">
           <span>Welcome, {userName || 'User'}!</span>
         </div>
+        <label class="switch">
+          <input type="checkbox" onChange={toggleTheme}/>
+          <span class="slider round"></span>
+        </label>
       </header>
       <div className="search-container">
         <input

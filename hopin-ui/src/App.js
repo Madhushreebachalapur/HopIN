@@ -8,12 +8,11 @@ import RideDetails from './RideDetails'; // Create RideDetails Component
 
 const App = () => {
 const [rides, setRides] = useState([
-    { id: 1, departureTime: '10:30 AM', from: 'Location A', to: 'Location B', seatsLeft: 3, cost: '₹50' },
-    { id: 2, departureTime: '3:00 PM', from: 'Location C', to: 'Location D', seatsLeft: 2, cost: '₹60' },
-    { id: 3, departureTime: '5:30 PM', from: 'Location E', to: 'Location F', seatsLeft: 4, cost: '₹40' },
-    { id: 4, departureTime: '7:00 AM', from: 'Location G', to: 'Location H', seatsLeft: 1, cost: '₹70' },
+    { id: 1, departureTime: '8:30 AM', from: 'R.T.Nagar', to: 'MSRIT college', seatsLeft: 3, cost: '₹50' },
+    { id: 2, departureTime: '3:00 PM', from: 'Dairy Circle', to: 'MSRIT', seatsLeft: 2, cost: '₹60' },
+    { id: 3, departureTime: '5:30 PM', from: 'MSRIT', to: 'Yeshwantpur', seatsLeft: 4, cost: '₹40' },
+    { id: 4, departureTime: '7:00 PM', from: 'MSRIT', to: 'Wilson Garden', seatsLeft: 1, cost: '₹70' },
   ]);
-
 
 /*
   const [rides, setRides] = useState([]);
