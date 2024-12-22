@@ -1,0 +1,157 @@
+/* HomeScreen.css */
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Container */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Header */
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 8px 8px 0 0;
+}
+
+.home-header .logo h1 {
+    font-size: 1.5rem;
+}
+
+.home-header .profile span {
+    font-size: 1rem;
+}
+
+/* Search Bar */
+.search-container {
+    margin: 20px 0;
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+/* Options Container */
+.options-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.option-button {
+    flex: 1;
+    margin: 0 10px;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.option-button:hover {
+    background-color: #0056b3;
+}
+
+/* Active Rides */
+.active-rides {
+    width: 100%;
+    max-width: 600px;
+}
+
+.active-rides h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.ride-card {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.ride-card:hover {
+    transform: scale(1.02);
+}
+
+.ride-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.ride-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.ride-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.exit-button {
+    width: 20px; /* or any other styling */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-bar {
+        font-size: 0.9rem;
+    }
+
+    .option-button {
+        margin: 10px 0;
+        font-size: 1rem;
+    }
+
+    .ride-card {
+        grid-template-columns: 1fr;
+        align-items: flex-start;
+    }
+
+    .ride-info {
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+}
